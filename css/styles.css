@@ -47,6 +47,8 @@ body {
 
 .page-header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .page-header-container {
@@ -99,6 +101,7 @@ body {
 
 .current {
   position: relative;
+  color: #404bbf;
 }
 
 .current::after {
@@ -148,6 +151,8 @@ body {
     ),
     url(../images/section-hero/bg.jpg);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: #2e2f42;
   padding-top: 188px;
   padding-bottom: 188px;
@@ -182,12 +187,12 @@ body {
   background: #4d5ae5;
   border: none;
   border-radius: 4px;
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .order-btn:hover,
 .order-btn:focus {
-  background: #404bbf;
+  background-color: #404bbf;
 }
 
 /* Benefits Section styles */
@@ -302,24 +307,31 @@ body {
 
 .section-team-social-list {
   display: flex;
-  gap: 40px;
+  justify-content: center;
+  gap: 24px;
   padding-right: 16px;
   padding-bottom: 32px;
   padding-left: 16px;
+}
+
+.section-team-social-list-item {
+  width: 40px;
+  height: 40px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-team-social-list-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: #4d5ae5;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.section-team-social-list-link:hover {
+.section-team-social-list-link:hover,
+.section-team-social-list-link:focus {
   background-color: #404bbf;
 }
 
@@ -353,21 +365,23 @@ body {
 }
 
 .section-portfolio-list-item {
-  width: calc((100% - 3 * 24) / 3);
+  width: calc((100% - 2 * 24) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-portfolio-list-item:hover {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
-.section-portfolio-list-img {
+.container-portfolio-list-img {
   position: relative;
   overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.section-portfolio-list-img:hover .portfolio-overlay {
-  transform: translateY(0);
-}
-
-.portfolio-overlay {
+.overlay-portfolio-descr {
   position: absolute;
   top: 0;
   left: 0;
@@ -376,18 +390,16 @@ body {
   overflow: auto;
   background-color: #4d5ae5;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+  padding: 40px 32px;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 40px 32px;
 }
 
-.portfolio-overlay-descr {
-  font-size: 16px;
-  line-height: 150%;
-  letter-spacing: 0.02em;
+.container-portfolio-list-img:hover .overlay-portfolio-descr {
+  transform: translateY(0%);
 }
 
 .container-portfolio-list-item {
@@ -422,7 +434,10 @@ body {
 .page-footer-container {
   display: flex;
   align-items: baseline;
-  gap: 120px;
+}
+
+.page-footer-container-part-first {
+  margin-right: 120px;
 }
 
 .logo-footer {
@@ -442,7 +457,7 @@ body {
   max-width: 264px;
 }
 
-.page-footer-social-title {
+.page-footer-social-descr {
   margin-bottom: 16px;
   font-weight: 500;
   font-size: 16px;
@@ -453,7 +468,7 @@ body {
 
 .page-footer-social-list {
   display: flex;
-  gap: 32px;
+  gap: 16px;
 }
 
 .page-footer-social-list-link {
@@ -467,10 +482,11 @@ body {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.page-footer-social-list-link:hover {
+.page-footer-social-list-link:hover,
+.page-footer-social-list-link:focus {
   background-color: #31d0aa;
 }
 
 .page-footer-social-list-icon {
-  fill: #ffffff;
+  fill: #f4f4fd;
 }
