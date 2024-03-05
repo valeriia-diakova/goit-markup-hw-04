@@ -89,11 +89,27 @@ body {
   color: #2e2f42;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-link:hover,
 .menu-link:focus {
   color: #404bbf;
+}
+
+.current {
+  position: relative;
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  border-radius: 2px;
+  height: 4px;
+  width: 100%;
+  background: #404bbf;
 }
 
 /* Address Page styles */
@@ -112,6 +128,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -122,7 +139,16 @@ body {
 /* Hero Section styles */
 
 .section-hero {
-  background: #2e2f42;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/section-hero/bg.jpg);
+  background-size: cover;
+  background-color: #2e2f42;
   padding-top: 188px;
   padding-bottom: 188px;
 }
@@ -156,6 +182,7 @@ body {
   background: #4d5ae5;
   border: none;
   border-radius: 4px;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .order-btn:hover,
@@ -190,6 +217,18 @@ body {
 
 .section-benefits-list-item {
   width: calc((100% - 3 * 24px) / 4);
+}
+
+.section-benefits-list-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background: #f4f4fd;
+  margin-bottom: 8px;
 }
 
 .section-benefits-list-title {
@@ -233,8 +272,11 @@ body {
 
 .section-team-list-item {
   background: #fff;
+
   width: calc((100% - 3 * 24) / 4);
   border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .container-team-list-item {
@@ -256,6 +298,33 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+}
+
+.section-team-social-list {
+  display: flex;
+  gap: 40px;
+  padding-right: 16px;
+  padding-bottom: 32px;
+  padding-left: 16px;
+}
+
+.section-team-social-list-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-team-social-list-link:hover {
+  background-color: #404bbf;
+}
+
+.section-team-social-list-icon {
+  fill: #ffffff;
 }
 
 /* Portfolio Section styles */
@@ -285,6 +354,40 @@ body {
 
 .section-portfolio-list-item {
   width: calc((100% - 3 * 24) / 3);
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.section-portfolio-list-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-portfolio-list-img:hover .portfolio-overlay {
+  transform: translateY(0);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #4d5ae5;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 40px 32px;
+}
+
+.portfolio-overlay-descr {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
 }
 
 .container-portfolio-list-item {
@@ -316,6 +419,12 @@ body {
   background: #2e2f42;
 }
 
+.page-footer-container {
+  display: flex;
+  align-items: baseline;
+  gap: 120px;
+}
+
 .logo-footer {
   display: inline-block;
   margin-bottom: 16px;
@@ -331,4 +440,37 @@ body {
   letter-spacing: 0.02em;
   color: #f4f4fd;
   max-width: 264px;
+}
+
+.page-footer-social-title {
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.page-footer-social-list {
+  display: flex;
+  gap: 32px;
+}
+
+.page-footer-social-list-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-footer-social-list-link:hover {
+  background-color: #31d0aa;
+}
+
+.page-footer-social-list-icon {
+  fill: #ffffff;
 }
